@@ -3,12 +3,11 @@ const app = express(); //inicializando o express
 const port = 3000;
 const usersRouter = require('./routes/usersRoute');
 
+app.use('/', usersRouter);
+
 app.get("/", (req, res) => {
     res.send("Deu bom :) !")
 })
-
-
-
 
 //configuração da porta do servidor
 app.listen(port, () => {
