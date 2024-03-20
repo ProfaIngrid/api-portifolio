@@ -9,6 +9,11 @@ router.get('/', (req, res) => {
     })
 })
 
-
+router.get('/', (req, res) => {
+    dbConecta.query('SELECT * FROM users WHERE id = 2', (err, result) => {
+        if(err) throw err;
+        res.json(result);
+    })
+})
 
 module.exports = router;
