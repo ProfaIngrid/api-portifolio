@@ -9,8 +9,9 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/', (req, res) => {
-    dbConecta.query('SELECT * FROM users WHERE id = 2', (err, result) => {
+router.get('/id/:id', (req, res) => {
+    const id = req.params.id;
+    dbConecta.query('SELECT * FROM users WHERE id = ?', [id], (err, result) => {
         if(err) throw err;
         res.json(result);
     })
